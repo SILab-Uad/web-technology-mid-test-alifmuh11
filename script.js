@@ -1,4 +1,4 @@
-const generatePassword = (length, options) => {
+export const generatePassword = (length, options) => {
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
     const numbers = "0123456789";
@@ -11,8 +11,7 @@ const generatePassword = (length, options) => {
     if (options.includeSpecialChars) characterSet += specialChars;
 
     if (characterSet === '') {
-        alert('Minimal Pilih Salah Satu BOSSS.');
-        return;
+        throw new Error("At least one character type must be selected.");
     }
 
     let password = '';
